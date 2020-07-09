@@ -1,47 +1,96 @@
-import React from 'react';
+// effect is like react life cycle meethod
+import React, { useState, useEffect } from 'react';
 
-class LoginForm extends React.Component {
+import { useDispatch, useSelctor } from 'react-redux';
+import { login, clearErrors } from '../../actions/session_actions';
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            email: '',
-            password: ''
+const LoginForm = () => {
+    const dispatch = useDispatch();
+    const [ email, setEmail ] = useState('');
+    const [ password, setPassword ] = useState('');
+
+    const updateEmail = e => setEmail(e.target.value);
+    const updatePassword = e => setPassword(e.target.value);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const user = {
+            email, 
+            password
         };
 
-        this.handleSubmit = this.handleSubmit.bind(this);
+        dispatch(login(user))
     }
 
-    update(field) {
-        return e => 
-            this.setState({
-                [field]: e.currentTarget.value
-            });
-    }
-
-    handleSubmit(e) {
-        e.preventDefault();
-        this.props.login(this.state);
-    }
-
-    render() {
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <input 
-                    value={this.state.email}
-                    onChange={this.update('email')}
-                />
-                <input
-                     value={this.state.password}
-                     onChange={this.update('password')}
-                />
-                <input type="submit"
-                    value='Log In'
-                />
-            </form>
-        )
-    }
-
+    return (
+      <form onSubmit={handleSubmit}>
+        <label>
+          Email
+          <input value={email} onChange={updateEmail} />
+        </label>
+        <label>
+          Password
+          <input
+            value={password}
+            onChange={updatePassword}
+            type='password'
+          />
+        </label>
+        <input type='submit' value='Log In' />
+      </form>
+    );
 };
+
+
+
+
+// class LoginForm extends React.Component {
+
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             email: '',
+//             password: ''
+//         };
+
+//         this.handleSubmit = this.handleSubmit.bind(this);
+//     }
+
+//     update(field) {
+//         return e => 
+//             this.setState({
+//                 [field]: e.currentTarget.value
+//             });
+//     }
+
+//     handleSubmit(e) {
+//         e.preventDefault();
+//         this.props.login(this.state);
+//     }
+
+//     render() {
+//         return (
+//             <form onSubmit={this.handleSubmit}>
+//                 <label>Email
+//                     <input 
+//                         value={this.state.email}
+//                         onChange={this.update('email')}
+//                         />
+//                 </label>
+//                 <label>Password
+//                     <input
+//                         value={this.state.password}
+//                         onChange={this.update('password')}
+//                         type='password'
+//                         />
+//                 </label>
+//                 <input type="submit"
+//                     value='Log In'
+//                 />
+//             </form>
+//         )
+//     }
+
+// };
 
 export default LoginForm;

@@ -11,6 +11,8 @@ import Root from './components/root';
 document.addEventListener('DOMContentLoaded', () => {
   let store;
 
+  window.logout = logout;
+
   if (localStorage.jwtToken) {
     setAuthToken(localStorage.jwtToken);
     const decodedUser = jwt_decode(localStorage.jwtToken);
@@ -31,9 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const root = document.getElementById("root");
 
-  //delete after testing
-  // window.getState = store.getState;
-  // window.dispatch = store.dispatch;
+  // delete after testing
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
 
   ReactDOM.render(<Root store={store} />, root);
 });

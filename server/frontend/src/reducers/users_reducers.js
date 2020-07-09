@@ -9,7 +9,8 @@ const usersReducer = (state={}, action) => {
             nextState = Object.assign({}, state, {[action.currentUser.id]: action.currentUser});
             return nextState;
         case LOGOUT_USER:
-            return state;
+            // debugger
+            return {};
         default: 
             return state;
     }

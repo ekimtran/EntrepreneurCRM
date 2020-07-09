@@ -19,7 +19,7 @@ export default function (state = initialState, action) {
     case LOGOUT_USER:
       return {
         isAuthenticated: false,
-        user: undefined,
+        user: {},
       };
     default:
       return state;

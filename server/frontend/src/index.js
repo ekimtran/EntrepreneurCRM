@@ -4,11 +4,11 @@ import configureStore from './store/store';
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './utils/session_util';
 import { logout } from './actions/session_actions';
+import Root from './components/root';
 
 
 
 document.addEventListener('DOMContentLoaded', () => {
-
   let store;
 
   if (localStorage.jwtToken) {
@@ -29,13 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore({});
   }
 
-  const root = document.getElementById('root');
+  const root = document.getElementById("root");
 
   //delete after testing
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
+  // window.getState = store.getState;
+  // window.dispatch = store.dispatch;
 
-  ReactDOM.render(<Root store={store} />, root)
+  ReactDOM.render(<Root store={store} />, root);
 });
 
 

@@ -26,7 +26,7 @@ const sessionErrors = errors => {
     }
 };
 
-const clearErrors = () => {
+const clearSessionErrors = () => {
     return {
         type: CLEAR_SESSION_ERRORS
     }
@@ -65,5 +65,5 @@ export const logout = () => dispatch => {
 };
 
 export const clearErrors = () => dispatch => {
-    dispatch(clearErrors());
+    dispatch(clearSessionErrors());
 };

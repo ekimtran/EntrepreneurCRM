@@ -3,7 +3,9 @@ import session from './session_reducer';
 import entities from './entities_reducer';
 
 
-export const rootReducer = combineReducers({
+const rootReducer = combineReducers({
     entities,
     session,
 });
+
+export default rootReducer;

@@ -41,10 +41,11 @@ const login = (req, res) => {
         if (isMatch && !err) {
           var token = jwt.sign(
             JSON.parse(JSON.stringify(user)),
-            "nodeauthsecret",
+            // "nodeauthsecret",
+            keys.secretOrKey,
             { expiresIn: 86400 * 30 }
           );
-          jwt.verify(token, "nodeauthsecret", function (err, data) {
+          jwt.verify(token, keys.secretOrKey, function (err, data) {
             console.log(err, data);
           });
           res.json({ success: true, token: "JWT " + token });

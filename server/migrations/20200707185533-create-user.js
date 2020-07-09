@@ -10,8 +10,7 @@ module.exports = {
       },
       email: { type: Sequelize.STRING, allowNull: false, unique: true },
       password: { type: Sequelize.STRING, allowNull: false },
-      first_name: { type: Sequelize.STRING, allowNull: false },
-      last_name: { type: Sequelize.STRING, allowNull: false },
+      companyName: { type: Sequelize.STRING, allowNull: false },
       createdAt: { allowNull: false, type: Sequelize.DATE },
       updatedAt: { allowNull: false, type: Sequelize.DATE },
     });

@@ -6,12 +6,14 @@ import {
 
 const sessionErrorsReducer = (state=[], action) => {
     Object.freeze(state);
+    const newState = { ...state };
 
     switch(action.type) {
         case SESSION_ERRORS:
             return action.errors;
         case CLEAR_SESSION_ERRORS:
-            return state;
+            delete newState.errors
+            return [];
         default:
             return state;
     }

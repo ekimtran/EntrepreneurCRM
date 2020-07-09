@@ -7,18 +7,11 @@ module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
     "User",
     {
-      first_name: {
+      companyName: {
         type: DataTypes.STRING,
         allowNull: {
           args: false,
-          msg: "Please provide a first name",
-        },
-      },
-      last_name: {
-        type: DataTypes.STRING,
-        allowNull: {
-          args: false,
-          msg: "Please provide a last name",
+          msg: "Please provide a company name",
         },
       },
       password: {

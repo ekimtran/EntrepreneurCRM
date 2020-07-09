@@ -1,43 +1,45 @@
-// effect is like react life cycle meethod
 import React, { useState, useEffect } from 'react';
-
 import { useDispatch, useSelector } from 'react-redux';
-import { login, clearErrors } from '../../actions/session_actions';
+import { login, signup, clearErrors } from '../../actions/session_actions';
 
-const LoginForm = () => {
+const SignupForm = () => {
     const dispatch = useDispatch();
+    const errors = useSelector((state) => Object.values(state.errors.session));
+
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
-    const errors = useSelector(state => Object.values(state.errors.session));
+    const [ companyName, setCompanyName ] = useState('');
 
-    //   useEffect(() => {
+    // useEffect(() => {
     //     if (errors.length) dispatch(clearErrors());
-    //   }, []);
+    // });
 
     const updateEmail = e => setEmail(e.target.value);
     const updatePassword = e => setPassword(e.target.value);
+    const updateCompanyName = e => setCompanyName(e.target.value)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const user = {
-            email, 
-            password
+            email, password, first_name, last_name
         };
 
-        dispatch(login(user))
-    }
+        dispatch(signup(user))
+            // .then(login(user))
+    };
+
 
     return (
       <div>
         <div>
-          {errors.map((err, i) => (
-            <div key={i}>
-              <li>
-                {err.message}
-                {console.log(err.message)}
-              </li>
-            </div>
-          ))}
+          {errors.map((err, i) => {
+            Object.values(err).map((er, j) => (
+                <div key={j}>
+                    <li>{er.message}</li>
+                    {console.log(er)}
+                </div>
+            ))
+          })}
         </div>
         <form onSubmit={handleSubmit}>
           <label>
@@ -48,12 +50,16 @@ const LoginForm = () => {
             Password
             <input value={password} onChange={updatePassword} type='password' />
           </label>
+          <label>
+            Company Name
+            <input value={companyName} onChange={updateCompanyName} type='text' />
+          </label>
+
           <input type='submit' value='Log In' />
         </form>
       </div>
     );
+
 };
 
-
-
-export default LoginForm;
+export default SignupForm;

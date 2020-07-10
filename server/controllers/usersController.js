@@ -64,6 +64,7 @@ const signup = (req, res) => {
   }
 };
 
+
 // const signup = (req, res) => {
 //   console.log(req.body);
 //   if (
@@ -85,67 +86,7 @@ const signup = (req, res) => {
 //       });
 //   }
 // };
-// const signup = (req, res) => {
-//   console.log(req.body);
-//   if (
-//     !req.body.email ||
-//     !req.body.password ||
-//     !req.body.companyName
-//   ) {
-//     res.status(400).send({ msg: "Please pass the required information." });
-//   } else {
-//     User.create({
-//       email: req.body.email,
-//       password: req.body.password,
-//       companyName: req.body.companyName,
-//     })
-//       .then((user) => res.status(201).send(user))
-//       .catch((error) => {
-//         console.log(error);
-//         res.status(400).send(error);
-//       });
-//   }
-// };
 
-
-
-
-// const login = (req, res) => {
-//   const email = req.body.email;
-//   const password = req.body.email;
-
-//   User.findOne({
-//     where: {
-//       email: req.body.email,
-//     },
-//   }).then((user) => {
-//     if (!user) {
-//       return res.status(404).json({ email: "This user does not exist." });
-//     }
-//     bcrypt.compare(password, user.password).then((isMatch) => {
-//       if (isMatch) {
-//         const payload = {
-//           id: user.id,
-//           email: user.email,
-//           companyName: user.companyName,
-//         };
-//         jwt.sign(
-//           payload,
-//           keys.secretOrKey,
-//           { expiresIn: 3600 },
-//           (err, token) => {
-//             res.json({
-//               success: true,
-//               token: "Bearer " + token,
-//             });
-//           }
-//         );
-//       } else {
-//         return res.status(400).json({ password: "Incorrect password" });
-//       }
-//     });
-//   });
-// };
 
 const login = (req, res) => {
   User.findOne({

@@ -21,12 +21,16 @@ module.exports = (sequelize, DataTypes) => {
           msg: "Please provide a password",
         },
         validate: {
-          isNotShort: (value) => {
-            if (value.length < 8) {
-              throw new Error ('Password should be at least 8 characters')
-            }
-          }
-        }
+          // isNotShort: (value) => {
+          //   if (value.length < 8) {
+          //     throw new Error ('Password should be at least 8 characters')
+          //   }
+          // }
+          len: {
+            args: [8, 20],
+            msg: "The password length should be between 8 and 20 characters.",
+          },
+        },
       },
       email: {
         type: DataTypes.STRING,
@@ -50,15 +54,16 @@ module.exports = (sequelize, DataTypes) => {
   );
 
 
-  User.beforeSave((user, options) => {
-    if (user.changed("password")) {
-      user.password = bcrypt.hashSync(
-        user.password,
-        bcrypt.genSaltSync(10),
-        null
-      );
-    }
-  });
+  // User.beforeSave((user, options) => {
+  //   if (user.changed("password")) {
+  //     user.password = bcrypt.hashSync(
+  //       user.password,
+  //       bcrypt.genSaltSync(10),
+  //       null
+  //     );
+  //   }
+  // });
+
   User.prototype.comparePassword = function (passw, cb) {
     bcrypt.compare(passw, this.password, function (err, isMatch) {
       if (err) {

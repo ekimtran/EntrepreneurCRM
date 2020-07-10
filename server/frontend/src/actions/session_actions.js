@@ -35,16 +35,19 @@ const clearSessionErrors = () => {
 
 export const signup = user => dispatch => {
     return SessionUtil.signup(user)
-        .then(res => res.status(201).send('Account Created'))
-        // .then(res => {
-        //     const { token } = res.data;
-        //     localStorage.setItem("jwtToken", token);
-        //     SessionUtil.setAuthToken(token);
-        //     const decoded = jwt_decode(token);
-        //     dispatch(loginUser(decoded))
-        // })
+        // .then(res => 
+        //     res.status(201).send('Account Created')
+        // )
+        .then(res => {
+            // console.log(res)
+            const { token } = res.data;
+            localStorage.setItem("jwtToken", token);
+            SessionUtil.setAuthToken(token);
+            const decoded = jwt_decode(token);
+            dispatch(loginUser(decoded))
+        })
         .catch(err => {
-            dispatch(sessionErrors(err.response.data))
+            dispatch(sessionErrors(err))
         });
 }
 

@@ -35,8 +35,8 @@ const SignupForm = () => {
           {errors.map((err, i) => {
             Object.values(err).map((er, j) => (
                 <div key={j}>
-                    <li>{er.message}</li>
-                    {console.log(er)}
+                    <li>{er.msg}</li>
+                    {/* {console.log(er.msg)} */}
                 </div>
             ))
           })}

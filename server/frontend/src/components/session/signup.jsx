@@ -21,7 +21,7 @@ const SignupForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const user = {
-            email, password, first_name, last_name
+            email, password, companyName
         };
 
         dispatch(signup(user))

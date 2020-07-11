@@ -33,12 +33,12 @@ const SignupForm = () => {
       <div>
         <div>
           {errors.map((err, i) => {
-            Object.values(err).map((er, j) => (
-                <div key={j}>
-                    <li>{er.msg}</li>
-                    {/* {console.log(er.msg)} */}
-                </div>
-            ))
+            Object.values(err).map((er, j) => {
+              Object.values(er).map((error, k) => (
+                // {console.log(error.message)}
+                <li>{error.message}</li>
+              ))
+            })
           })}
         </div>
         <form onSubmit={handleSubmit}>

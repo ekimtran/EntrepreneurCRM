@@ -7,7 +7,7 @@ const bcrypt = require("bcryptjs");
 
 
 const signup = (req, res) => {
-    console.log(req.body)
+    // console.log(req.body)
     if (!req.body.email || !req.body.password || !req.body.companyName) {
         res.status(400).send({ msg: "Please pass the required information." });
   } else {
@@ -54,7 +54,10 @@ const signup = (req, res) => {
                 })
               .catch((error) => {
                   console.log(error);
-                  res.status(400).send(error);
+                  // const extError = error;
+                  // extError.forEach(el => 
+                  //   )
+                    res.status(400).send(error.errors)
               });
             });
           });

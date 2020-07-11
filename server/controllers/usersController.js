@@ -53,11 +53,13 @@ const signup = (req, res) => {
                   );
                 })
               .catch((error) => {
-                  console.log(error);
-                  // const extError = error;
-                  // extError.forEach(el => 
-                  //   )
-                    res.status(400).send(error.errors)
+                const er = {msg: []};
+                const allErr = error.errors
+                for(i = 0; i < allErr.length; i++) {
+                  er["msg"].push(allErr[i].message)
+                  console.log(allErr[i].message)
+                }
+                  res.status(400).send(er)
               });
             });
           });

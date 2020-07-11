@@ -4,7 +4,7 @@ import { login, signup, clearErrors } from '../../actions/session_actions';
 
 const SignupForm = () => {
     const dispatch = useDispatch();
-    const errors = useSelector((state) => Object.values(state.errors.session));
+    const errors = useSelector((state) => (state.errors.session));
 
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
@@ -29,17 +29,13 @@ const SignupForm = () => {
     };
 
 
+
+
     return (
       <div>
+
         <div>
-          {errors.map((err, i) => {
-            Object.values(err).map((er, j) => {
-              Object.values(er).map((error, k) => (
-                // {console.log(error.message)}
-                <li>{error.message}</li>
-              ))
-            })
-          })}
+          {console.log(errors.msg)}
         </div>
         <form onSubmit={handleSubmit}>
           <label>

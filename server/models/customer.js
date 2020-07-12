@@ -6,6 +6,12 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Customer.associate = function(models) {
     // associations can be defined here
+    models.Customer.belongsTo(models.User, {
+      onDelete: "CASCADE",
+      foreignKey: {
+        allowNull: false,
+      },
+    });
   };
   return Customer;
 };

@@ -59,7 +59,7 @@ const signup = (req, res) => {
                   er["msg"].push(allErr[i].message)
                   console.log(allErr[i].message)
                 }
-                  res.status(400).send(er)
+                  res.status(400).json(er)
               });
             });
           });
@@ -126,7 +126,7 @@ const login = (req, res) => {
         }
       });
     })
-    .catch((error) => res.status(400).send(error));
+    .catch((error) => res.status(400).json(error));
 
 }
 

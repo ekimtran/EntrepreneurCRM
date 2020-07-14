@@ -1,10 +1,13 @@
 const { reset } = require('nodemon');
 
 const Customer = require('../models').Customer;
+const User = require('../models').User;
 
 const createCustomer = (req, res) => {
 
-    if (!req.body.name || !req.body.phoneNumber || !req.body.userId)
+    if (!req.body.name || !req.body.phoneNumber || !req.body.userId) {
+        res.status(400).json({msg: 'Please pass the required information'})
+    }
     
     Customer
         .create({

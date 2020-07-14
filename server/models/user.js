@@ -26,10 +26,10 @@ module.exports = (sequelize, DataTypes) => {
           //     throw new Error ('Password should be at least 8 characters')
           //   }
           // }
-          len: {
-            args: [8, 20],
-            msg: "The password length should be between 8 and 20 characters.",
-          },
+          // len: {
+          //   args: 8,
+          //   msg: "Password should be at least 8 characters.",
+          // },
         },
       },
       email: {

@@ -10,10 +10,6 @@ const signup = (req, res) => {
     // console.log(req.body)
     if (!req.body.email || !req.body.password || !req.body.companyName) {
         res.status(400).send({ msg: "Please pass the required information." });
-    } 
-    
-    if (req.body.password.length < 8) {
-      res.status(400).send({ msg: "Password should be at least 8 characters"})
     } else {
       User.findOne({
         where: {

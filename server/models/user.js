@@ -21,15 +21,10 @@ module.exports = (sequelize, DataTypes) => {
           msg: "Please provide a password",
         },
         validate: {
-          // isNotShort: (value) => {
-          //   if (value.length < 8) {
-          //     throw new Error ('Password should be at least 8 characters')
-          //   }
-          // }
-          // len: {
-          //   args: 8,
-          //   msg: "Password should be at least 8 characters.",
-          // },
+          len: {
+            args: 8,
+            msg: "Password should be at least 8 characters.",
+          },
         },
       },
       email: {
@@ -73,9 +68,12 @@ module.exports = (sequelize, DataTypes) => {
     });
   };
 
-  User.associate = function(models) {
-    // associations can be defined here
-    models.User.hasMany(models.Customer);
-  };
+  User.associate = models => {
+    User.hasMany(models.Customer, {
+      onDelete: 'cascade'
+    });
+
+  }
+
   return User;
 };

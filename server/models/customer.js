@@ -5,13 +5,12 @@ module.exports = (sequelize, DataTypes) => {
     phoneNumber: DataTypes.STRING
     
   }, {});
-  Customer.associate = function(models) {
-    // associations can be defined here
-    models.Customer.belongsTo(models.User, {
-      onDelete: "CASCADE",
+
+  Customer.associate = models => {
+    Customer.belongsTo(models.User, {
       foreignKey: {
-        allowNull: false,
-      },
+        allowNull: false
+      }
     });
   };
   return Customer;

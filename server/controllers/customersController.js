@@ -1,9 +1,15 @@
-// const Customer = require('../models').Customer;
-// const User = require('../models').User;
-const db = require('../models');
+const Customer = require('../models').Customer;
+const User = require('../models').User;
+const validateCustomerInput = require('../validation/customer');
 
 const createCustomer = (req, res) => {
-    db.Customer
+    const { errors, isValid } = validateCustomerInput(req.body);
+
+    if (!isValid) {
+        return res.status(400).json(errors);
+    }
+
+    Customer
         .create({
             name: req.body.name,
             phoneNumber: req.body.phoneNumber,

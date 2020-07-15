@@ -71,8 +71,6 @@ const signup = (req, res) => {
 );
 };
 
-
-
 const login = (req, res) => {
   User.findOne({
     where: {

@@ -79,6 +79,20 @@ const updateCustomer = (req, res) => {
     .catch(error => res.status(400).json(error))
 };
 
+const deleteCustomer = (req, res) => {
+    Customer.findOne({
+        where: {
+        id: req.body.id,
+        },
+    })
+    .then(customer => {
+        customer.destroy()
+        .then(() => res.status(201).json({customer: 'Customer has been deleted'}))
+        // .catch(error => res.status(400).json(error))
+    })
+    // .catch(err => res.status(400).json(err))
+}
+
 const listOfCustomer = (req, res) => {
     Customer.findAll({
         where: {
@@ -94,5 +108,6 @@ module.exports = {
     searchNumber,
     searchName,
     updateCustomer,
-    listOfCustomer
+    listOfCustomer,
+    deleteCustomer,
 }

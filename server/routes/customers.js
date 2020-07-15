@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require("passport");
 const customersControler = require('../controllers/customersController');
+const customersController = require('../controllers/customersController');
 
 
 router.get("/test", (req, res) => {
@@ -13,7 +14,8 @@ const authCheck = passport.authenticate("jwt", { session: false });
 router.post('/create', customersControler.createCustomer);
 router.get('/searchNumber', customersControler.searchNumber);
 router.get('/searchName', customersControler.searchName);
-router.patch('/update', customersControler.updateCustomer);
 router.get('/customerList', customersControler.listOfCustomer);
+router.patch('/update', customersControler.updateCustomer);
+router.delete('/remove', customersController.deleteCustomer);
 
 module.exports = router;

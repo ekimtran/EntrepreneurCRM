@@ -32,7 +32,6 @@ const createCustomer = (req, res) => {
 };
 
 const searchNumber = (req, res) => {
-    
     Customer.findOne({
         where: {
             phoneNumber: req.body.phoneNumber
@@ -48,9 +47,41 @@ const searchNumber = (req, res) => {
     .catch(error => res.status(400).json(error));
 };
 
-const searchName = (req)
+const searchName = (req, res) => {
+    Customer.findOne({
+      where: {
+        name: req.body.name,
+      },
+    })
+    .then((customer) => {
+    if (customer) {
+        return res.status(201).json(customer);
+    } else {
+        return res.status(201).json({ customer: "Customer does not exist" });
+    }
+    })
+    .catch((error) => res.status(400).json(error));
+}
+
+const updateCustomer = (req, res) => {
+    Customer.findOne({
+        where: {
+            id: req.body.id
+        }
+    })
+    .then(customer => {
+        customer.update({
+            name: req.body.name,
+            phoneNumber: req.body.phoneNumber
+        })
+        .then(() => res.status(201).json({customer: 'Customer information saved!'}))
+    })
+    .catch(error => res.status(400).json(error))
+};
 
 module.exports = {
     createCustomer,
-    searchNumber
+    searchNumber,
+    searchName,
+    updateCustomer
 }

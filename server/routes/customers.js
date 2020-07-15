@@ -7,6 +7,8 @@ router.get("/test", (req, res) => {
 });
 
 router.post('/create', customersControler.createCustomer);
-router.get('/searchNumber', customersControler.searchNumber)
+router.get('/searchNumber', customersControler.searchNumber);
+router.get('/searchName', customersControler.searchName);
+router.patch('/update', customersControler.updateCustomer);
 
 module.exports = router;

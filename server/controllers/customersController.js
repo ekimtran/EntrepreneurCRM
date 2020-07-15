@@ -79,9 +79,20 @@ const updateCustomer = (req, res) => {
     .catch(error => res.status(400).json(error))
 };
 
+const listOfCustomer = (req, res) => {
+    Customer.findAll({
+        where: {
+            userId: req.body.userId
+        },
+    })
+    .then(result => res.status(201).json(result))
+    .catch(error => res.status(400).json(error))
+};
+
 module.exports = {
     createCustomer,
     searchNumber,
     searchName,
-    updateCustomer
+    updateCustomer,
+    listOfCustomer
 }

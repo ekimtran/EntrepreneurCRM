@@ -10,5 +10,6 @@ router.post('/create', customersControler.createCustomer);
 router.get('/searchNumber', customersControler.searchNumber);
 router.get('/searchName', customersControler.searchName);
 router.patch('/update', customersControler.updateCustomer);
+router.get('/customerList', customersControler.listOfCustomer);
 
 module.exports = router;

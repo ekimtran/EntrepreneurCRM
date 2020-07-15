@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     year: DataTypes.INTEGER,
     type: DataTypes.STRING,
     userId: DataTypes.INTEGER,
-    amount: DataTypes.DECIMAL,
+    amount: DataTypes.DECIMAL(10,2),
     description: DataTypes.TEXT
   }, {});
   Expense.associate = models => {

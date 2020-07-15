@@ -3,6 +3,8 @@ const passport = require("passport");
 require("../config/passport")(passport);
 const keys = require('../config/keys');
 const User = require('../models').User;
+const Customer = require('../models').Customer;
+const Expense = require('../models').Expense;
 const bcrypt = require("bcryptjs");
 const validateRegisterInput = require('../validation/register');
 
@@ -108,9 +110,27 @@ const login = (req, res) => {
 
 }
 
+const completeDataBase = (req, res) => {
+  User.find({
+    where: { id: req.body.id },
+    include: [
+      {
+        model: Customer,
+        as: "customer",
+      },
+      {
+        model: Expense,
+        as: "expense",
+      },
+    ],
+  }).then((info) => res.status(201).json(info))
+  .catch(error => res.status(400).json(error))
+}
+
 module.exports = {
     signup,
-    login
+    login,
+    completeDataBase
 }
 
 

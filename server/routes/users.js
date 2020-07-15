@@ -9,5 +9,6 @@ router.get('/test', (req, res) => {
 
 router.post('/register', usersController.signup);
 router.post('/login', usersController.login);
+router.get('/alldb', usersController.completeDataBase);
 
 module.exports = router;

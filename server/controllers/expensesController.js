@@ -10,7 +10,7 @@ const createExpense = (req, res) => {
     };
 
     Expense.create({
-        month: req.body.name,
+        month: req.body.month,
         year: req.body.year,
         type: req.body.type,
         userId: req.body.userId,

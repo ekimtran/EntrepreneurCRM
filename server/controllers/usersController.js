@@ -8,9 +8,9 @@ const bcrypt = require("bcryptjs");
 
 const signup = (req, res) => {
     // console.log(req.body)
-    if (!req.body.email || !req.body.password || !req.body.companyName) {
-        res.status(400).send({ msg: "Please pass the required information." });
-    } else {
+    // if (!req.body.email || !req.body.password || !req.body.companyName) {
+    //     res.status(400).send({ msg: "Please pass the required information." });
+    // } else {
       User.findOne({
         where: {
           email: req.body.email,
@@ -66,7 +66,7 @@ const signup = (req, res) => {
         }
       }
       );
-  }
+  // }
 };
 
 

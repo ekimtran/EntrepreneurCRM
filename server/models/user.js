@@ -9,23 +9,11 @@ module.exports = (sequelize, DataTypes) => {
     {
       companyName: {
         type: DataTypes.STRING,
-        allowNull: {
-          args: false,
-          msg: "Please provide a company name",
-        },
+        allowNull: false,
       },
       password: {
         type: DataTypes.STRING,
-        allowNull: {
-          args: false,
-          msg: "Please provide a password",
-        },
-        validate: {
-          len: {
-            args: 8,
-            msg: "Password should be at least 8 characters.",
-          },
-        },
+        allowNull: false,
       },
       email: {
         type: DataTypes.STRING,
@@ -33,16 +21,7 @@ module.exports = (sequelize, DataTypes) => {
           args: true,
           msg: "Email already exists",
         },
-        allowNull: {
-          args: false,
-          msg: "Please provide an email address",
-        },
-        validate: {
-          isEmail: {
-            args: true,
-            msg: "Please enter a valid email address",
-          },
-        },
+        allowNull: false,
       },
     },
     {}

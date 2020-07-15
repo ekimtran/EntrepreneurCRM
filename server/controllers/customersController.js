@@ -1,8 +1,9 @@
-const Customer = require('../models').Customer;
-const User = require('../models').User;
+// const Customer = require('../models').Customer;
+// const User = require('../models').User;
+const db = require('../models');
 
 const createCustomer = (req, res) => {
-    Customer
+    db.Customer
         .create({
             name: req.body.name,
             phoneNumber: req.body.phoneNumber,

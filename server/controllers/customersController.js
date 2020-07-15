@@ -8,15 +8,14 @@ const createCustomer = (req, res) => {
     if (!isValid) {
         return res.status(400).json(errors);
     }
-
     Customer
         .create({
             name: req.body.name,
             phoneNumber: req.body.phoneNumber,
-            UserId: req.body.UserId
+            userId: req.body.userId
         })
         .then(() => res.status(201).json({message: 'Customer Created!'}))
-        .catch(error => res.status(400).json(error))
+        // .catch(error => res.status(400).json(error))
 };
 
 module.exports = {

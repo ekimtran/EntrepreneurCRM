@@ -4,7 +4,6 @@ require("../config/passport")(passport);
 const keys = require('../config/keys');
 const User = require('../models').User;
 const bcrypt = require("bcryptjs");
-
 const validateRegisterInput = require('../validation/register');
 
 

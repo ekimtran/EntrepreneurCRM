@@ -7,5 +7,6 @@ router.get("/test", (req, res) => {
 });
 
 router.post('/create', customersControler.createCustomer);
+router.get('/searchNumber', customersControler.searchNumber)
 
 module.exports = router;

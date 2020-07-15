@@ -57,10 +57,10 @@ const searchName = (req, res) => {
     if (customer) {
         return res.status(201).json(customer);
     } else {
-        return res.status(201).json({ customer: "Customer does not exist" });
+        return res.status(400).json({ customer: "Customer does not exist" });
     }
     })
-    .catch((error) => res.status(400).json(error));
+    .catch(error => res.status(400).json(error));
 }
 
 const updateCustomer = (req, res) => {
@@ -88,9 +88,9 @@ const deleteCustomer = (req, res) => {
     .then(customer => {
         customer.destroy()
         .then(() => res.status(201).json({customer: 'Customer has been deleted'}))
-        // .catch(error => res.status(400).json(error))
+        .catch(error => res.status(400).json(error))
     })
-    // .catch(err => res.status(400).json(err))
+    .catch(err => res.status(400).json(err))
 }
 
 const listOfCustomer = (req, res) => {

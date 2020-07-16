@@ -14,10 +14,17 @@ module.exports = (sequelize, DataTypes) => {
     {}
   );
   Vendor.associate = function(models) {
+
     Vendor.belongsTo(models.User, {
       foreignKey: "userId",
       as: "user",
     });
+
+    Vendor.hasMany(models.Item, {
+      foreignKey: "vendorId",
+      as: "item",
+    });
+  
   };
   return Vendor;
 };

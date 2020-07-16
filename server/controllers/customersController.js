@@ -24,7 +24,7 @@ const createCustomer = (req, res) => {
                 userId: req.body.userId,
             })
                 .then(() =>
-                res.status(201).json({ message: "Customer Created!" })
+                res.status(201).json({ customer: 'Customer Created!' })
                 )
                 .catch((error) => res.status(400).json(error));
         }

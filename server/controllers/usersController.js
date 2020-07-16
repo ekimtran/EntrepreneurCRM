@@ -57,15 +57,16 @@ const signup = (req, res) => {
                 }
               );
             })
-          .catch((error) => {
-            const er = {msg: []};
-            const allErr = error.errors
-            for(i = 0; i < allErr.length; i++) {
-              er["msg"].push(allErr[i].message)
-              console.log(allErr[i].message)
-            }
-              res.status(400).json(er)
-          });
+          // .catch((error) => {
+          //   const er = {msg: []};
+          //   const allErr = error.errors
+          //   for(i = 0; i < allErr.length; i++) {
+          //     er["msg"].push(allErr[i].message)
+          //     console.log(allErr[i].message)
+          //   }
+          //     res.status(400).json(er)
+          // });
+          .catch(error => res.status(400).json(error))
         });
       });
     }

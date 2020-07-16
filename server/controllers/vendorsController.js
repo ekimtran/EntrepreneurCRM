@@ -23,13 +23,14 @@ const createVendor = (req, res) => {
                 address: req.body.address,
                 city: req.body.city,
                 state: req.body.state,
-                zipcode: req.body.zipcode
+                zipcode: req.body.zipcode,
+                userId: req.body.userId
             })
             .then(() => res.status(201).json({ vendor: 'Vendor added!'}))
-            // .catch(error => res.status(400).json(error))
+            .catch(error => res.status(400).json(error))
         }
     })
-    // .catch(err => res.status(400).json(err))
+    .catch(err => res.status(400).json(err))
 };
 
 

@@ -5,6 +5,7 @@ const keys = require('../config/keys');
 const User = require('../models').User;
 const Customer = require('../models').Customer;
 const Expense = require('../models').Expense;
+const Vendor = require('../models').Vendor;
 const bcrypt = require("bcryptjs");
 const validateRegisterInput = require('../validation/register');
 
@@ -112,16 +113,20 @@ const login = (req, res) => {
 }
 
 const completeDataBase = (req, res) => {
-  User.find({
+  User.findOne({
     where: { id: req.body.id },
     include: [
       {
         model: Customer,
-        as: "customer",
+        as: 'customer',
       },
       {
         model: Expense,
-        as: "expense",
+        as: 'expense',
+      },
+      {
+        model: Vendor,
+        as: 'vendor'
       },
     ],
   }).then((info) => res.status(201).json(info))

@@ -1,15 +1,23 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Vendor = sequelize.define('Vendor', {
-    phoneNumber: DataTypes.STRING,
-    address: DataTypes.STRING,
-    city: DataTypes.STRING,
-    state: DataTypes.STRING,
-    zipcode: DataTypes.INTEGER,
-    company: DataTypes.STRING
-  }, {});
+  const Vendor = sequelize.define(
+    "Vendor",
+    {
+      phoneNumber: DataTypes.STRING,
+      address: DataTypes.STRING,
+      city: DataTypes.STRING,
+      state: DataTypes.STRING,
+      zipcode: DataTypes.INTEGER,
+      company: DataTypes.STRING,
+      userId: DataTypes.INTEGER,
+    },
+    {}
+  );
   Vendor.associate = function(models) {
-    // associations can be defined here
+    Vendor.belongsTo(models.User, {
+      foreignKey: "userId",
+      as: "user",
+    });
   };
   return Vendor;
 };

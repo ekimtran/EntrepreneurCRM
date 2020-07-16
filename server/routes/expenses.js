@@ -10,6 +10,7 @@ router.patch('/update', expensesController.updateExpense);
 router.delete('/delete', expensesController.deleteExpense);
 router.get('/yearly', expensesController.searchByYear);
 router.get('/monthly', expensesController.searchByMonth);
+router.get('/list', expensesController.listOfExpense);
 
 
 

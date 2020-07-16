@@ -36,7 +36,7 @@ const updateExpense = (req, res) => {
           amount: req.body.amount,
           description: req.body.description,
         })
-        .then(() => res.status(201).json({expense: 'Expense updated!'}))
+        .then(() => res.status(201).json({ expense: 'Expense updated!'}))
     })
     .catch(error => res.status(400).json(error))
 };
@@ -49,7 +49,7 @@ const deleteExpense = (req, res) => {
     })
     .then(expense => {
         expense.destroy()
-        .then(() => res.status(201).json({expense: 'Expense deleted!'}))
+        .then(() => res.status(201).json({ expense: 'Expense deleted!'}))
         .catch(error => res.status(400).json(error));
     })
     .catch(err => res.status(400).json(err))
@@ -89,11 +89,21 @@ const searchByMonth = (req, res) => {
     .catch((error) => res.status(400).json(error));
 };
 
+const listOfExpense = (req, res) => {
+    Expense.findAll({
+      where: { userId: req.body.userId },
+      order: [['createdAt', 'DESC']],
+    })
+    .then(expense => res.status(201).json(expense))
+    .catch(() => res.status(400).json({ expense: 'No expense so far'}))
+}
+
 
 module.exports = {
     createExpense,
     updateExpense,
     deleteExpense,
     searchByYear,
-    searchByMonth
+    searchByMonth,
+    listOfExpense
 }

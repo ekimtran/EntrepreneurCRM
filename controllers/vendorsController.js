@@ -15,7 +15,7 @@ const createVendor = (req, res) => {
     })
     .then(vendor => {
         if (vendor) {
-            return res.status(400).json({vendor: 'Vendor already existed'})
+            return res.status(400).json({ vendor: 'Vendor already existed'})
         } else {
             Vendor.create({
                 company: req.body.company,

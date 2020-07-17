@@ -13,13 +13,13 @@
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "dependencies": {
-    "bcrypt-nodejs": "0.0.3",
     "bcryptjs": "^2.4.3",
     "concurrently": "^5.2.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "fs": "0.0.1-security",
+    "heroku": "^7.42.4",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "jsonwebtoken": "^8.5.1",

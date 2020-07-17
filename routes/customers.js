@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require('../node_modules/express');
 const router = express.Router();
-const passport = require("passport");
+const passport = require("../node_modules/passport/lib");
 const customersControler = require('../controllers/customersController');
 const customersController = require('../controllers/customersController');
 

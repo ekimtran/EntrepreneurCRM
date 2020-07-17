@@ -1,5 +1,5 @@
-const JwtStrategy = require("passport-jwt").Strategy,
-ExtractJwt = require("passport-jwt").ExtractJwt;
+const JwtStrategy = require("../node_modules/passport-jwt/lib").Strategy,
+ExtractJwt = require("../node_modules/passport-jwt/lib").ExtractJwt;
 const keys = require("./keys");
 
 // load up the user model

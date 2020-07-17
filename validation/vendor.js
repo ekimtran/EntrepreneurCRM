@@ -1,4 +1,4 @@
-const Validator = require("validator");
+const Validator = require("../node_modules/validator");
 const validText = require("./valid-text");
 
 

@@ -1,4 +1,4 @@
-const Validator = require("validator");
+const Validator = require("../node_modules/validator");
 const validText = require("./valid-text");
 
 
@@ -7,7 +7,7 @@ module.exports = function validateItemInput(data) {
 
     data.description = validText(data.description) ? data.description : '';
     data.price = validText(data.price) ? data.price : '';
-    data.name = validText(data.name) ? data.namee : '';
+    data.name = validText(data.name) ? data.name : '';
 
     if (Validator.isEmpty(data.description)) {
         errors.description = "Description is required.";
@@ -18,7 +18,7 @@ module.exports = function validateItemInput(data) {
     }
 
     if (Validator.isEmpty(data.name)) {
-        errors.namee = "Item namee is required.";
+        errors.name = "Item name is required.";
     }
 
 

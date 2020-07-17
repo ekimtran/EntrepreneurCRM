@@ -1,12 +1,12 @@
-const jwt = require("jsonwebtoken");
-const passport = require("passport");
+const jwt = require("../node_modules/jsonwebtoken");
+const passport = require("../node_modules/passport/lib");
 require("../config/passport")(passport);
 const keys = require('../config/keys');
 const User = require('../models').User;
 const Customer = require('../models').Customer;
 const Expense = require('../models').Expense;
 const Vendor = require('../models').Vendor;
-const bcrypt = require("bcryptjs");
+const bcrypt = require("../node_modules/bcryptjs");
 const validateRegisterInput = require('../validation/register');
 
 

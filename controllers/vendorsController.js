@@ -50,7 +50,7 @@ const updateVendor = (req, res) => {
           .then(() =>
             res.status(201).json({ vendor: "Vendor information updated!" })
           )
-          .catch((error) => res.status(400).json(error));
+          .catch(error => res.status(400).json(error));
     })
     .catch(err => res.status(400).json(err))
 };

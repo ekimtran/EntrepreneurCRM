@@ -29,6 +29,38 @@ const createItem = (req, res) => {
       .catch((err) => res.status(400).json(err));
 };
 
+const updateItem = (req, res) => {
+  Item.findOne({
+    where: { id: req.body.id}
+  })
+  .then(item => {
+    item
+      .update({
+        name: req.body.name,
+        price: req.body.price,
+        description: req.body.description,
+      })
+      .then(() => 
+        res.status(201).json({ item: 'Item information has been updated'})
+      )
+      .catch(error => res.status(400).json(error))
+  })
+  .catch(err => res.status(400).json(err))
+}
+
+const deleteItem = (req, res) => {
+  Item.findOne({
+    where: { id: req.body.id}
+  })
+  .then(item => {
+    item
+      .destroy()
+      .then(() => res.status(201).json({ item: "Item deleted!" }))
+      .catch((error) => res.staus(400).json(error));
+  })
+  .catch(err => res.status(400).json(err))
+}
+
 const getItemInfo = (req, res) => {
 
     Item.findOne({
@@ -44,5 +76,7 @@ const getItemInfo = (req, res) => {
 
 module.exports = {
     createItem,
-    getItemInfo
+    getItemInfo,
+    updateItem,
+    deleteItem
 }

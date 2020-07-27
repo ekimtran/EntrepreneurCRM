@@ -18,4 +18,5 @@ router.get('/customerList', customersControler.listOfCustomer);
 router.patch('/update', customersControler.updateCustomer);
 router.delete('/remove', customersController.deleteCustomer);
 
+
 module.exports = router;

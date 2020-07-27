@@ -61,6 +61,20 @@ const deleteItem = (req, res) => {
   .catch(err => res.status(400).json(err))
 }
 
+const listOfVendorItem = (req, res) => {
+  Item.findAll({
+    where: { vendorId: req.body.vendorId}
+  })
+  .then(item => {
+    if(item.length >= 1) {
+      return res.status(201).json(item)
+    } 
+    else {
+      return res.status(400).json({ item: 'No item from this Vendor'})
+    }
+  })
+  .catch(error => res.status(400).json(error))
+}
 const getItemInfo = (req, res) => {
 
     Item.findOne({
@@ -78,5 +92,6 @@ module.exports = {
     createItem,
     getItemInfo,
     updateItem,
-    deleteItem
+    deleteItem,
+    listOfVendorItem
 }

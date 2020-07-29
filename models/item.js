@@ -13,6 +13,13 @@ module.exports = (sequelize, DataTypes) => {
       as: 'vendor',
     });
 
+    Item.belongsTo(models.Inventory, {
+      foreignKey: 'itemId',
+      as: 'inventory',
+    });
+
+
+
   };
   return Item;
 };

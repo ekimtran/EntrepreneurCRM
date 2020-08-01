@@ -33,22 +33,25 @@ const SignupForm = () => {
 
     return (
       <div>
-
-        <div>
-          {console.log(errors.msg)}
-        </div>
         <form onSubmit={handleSubmit}>
+          <div className='signup-errors-container'>{errors.email}</div>
           <label>
             Email
             <input value={email} onChange={updateEmail} />
           </label>
           <label>
+            <div className='signup-errors-container'>{errors.password}</div>
             Password
             <input value={password} onChange={updatePassword} type='password' />
           </label>
           <label>
+            <div className='signup-errors-container'>{errors.companyName}</div>
             Company Name
-            <input value={companyName} onChange={updateCompanyName} type='text' />
+            <input
+              value={companyName}
+              onChange={updateCompanyName}
+              type='text'
+            />
           </label>
 
           <input type='submit' value='Log In' />

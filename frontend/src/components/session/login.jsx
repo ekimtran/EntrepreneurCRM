@@ -8,7 +8,7 @@ const LoginForm = () => {
     const dispatch = useDispatch();
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
-    const errors = useSelector(state => Object.values(state.errors.session));
+    const errors = useSelector(state => state.errors.session);
 
     //   useEffect(() => {
     //     if (errors.length) dispatch(clearErrors());

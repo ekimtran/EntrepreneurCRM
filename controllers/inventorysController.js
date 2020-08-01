@@ -9,7 +9,7 @@ const createInventory = (req, res) => {
     }
 
     Inventory.findOne({
-        where: { name: req.body.name },
+        where: { itemId: req.body.itemId },
     })
         .then(item => {
             if (item) {

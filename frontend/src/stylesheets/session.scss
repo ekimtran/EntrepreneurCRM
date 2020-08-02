@@ -1,0 +1,78 @@
+
+
+
+
+.form-container {
+  position: absolute;
+  box-shadow: 0px 0px 15px rgb(194, 194, 194);
+  border-radius: 10px;
+  width: 400px;
+  height: 550px;
+  top: 10%;
+  background-color: black;
+}
+
+
+
+.session-link {
+  text-transform: uppercase;
+  font-size: 130%;
+  margin: 20px;
+  text-decoration: none;
+}
+
+.inactive {
+  color: white;
+}
+
+.inactive:hover, .active {
+  color: #BF965C;
+  text-decoration: none;
+}
+
+.inactive, .active {
+  transition: 0.3s;
+}
+
+.form {
+  border-top: 1px solid grey;
+  width: inherit;
+  margin-top: 10px
+}
+
+.input {
+  width: 80%;
+  padding: 10px;
+  margin: 10px;
+  box-sizing: border-box;
+  color: grey;
+}
+
+.submit {
+  background-color: #BF965C;
+  color: #222121;
+  text-transform: uppercase;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #222121;
+  transition: 0.3s;
+}
+
+.submit:hover {
+  background-color: #222121;
+  color: white;
+  border: 0px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.user-auth-errors {
+  color: red;
+}
+
+.email {
+  margin: 9px;
+}

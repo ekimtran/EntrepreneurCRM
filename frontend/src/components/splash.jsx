@@ -2,7 +2,7 @@ import React from 'react';
 
 const Splash = () => (
 
-    <div>Hello World</div>
+    <div>Welcome Home </div>
 );
 
 export default Splash;

@@ -61,7 +61,7 @@ export const login = user => dispatch =>
             dispatch(loginUser(decoded));
         })
         .catch(err => {
-            dispatch(sessionErrors(err.response.data))
+            dispatch(sessionErrors(err))
         });
 
 export const logout = () => dispatch => {

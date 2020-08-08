@@ -108,7 +108,8 @@ const login = (req, res) => {
         }
       });
     })
-    .catch((error) => res.status(400).json(error));
+    // .catch((error) => res.status(400).json(error));
+    .catch((error) => console.log(error));
 
 }
 

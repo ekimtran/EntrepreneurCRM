@@ -6,7 +6,7 @@ import SignupForm from './session/signup';
 import Splash from './splash';
 import NavigationBar from './session/navigation';
 import ModalContainer from './modal/modal';
-
+import '../stylesheets/app.css';
 
 const App = () => (
     <div className="app">

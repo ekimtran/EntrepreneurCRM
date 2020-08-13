@@ -10,7 +10,7 @@ import '../stylesheets/app.css';
 
 const App = () => (
     <div className="app">
-
+        <ModalContainer />
         <NavigationBar />
         <Switch>
             <Route exact path="/signup" component={SignupForm}/>

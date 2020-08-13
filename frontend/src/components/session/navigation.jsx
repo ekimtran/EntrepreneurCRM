@@ -12,7 +12,8 @@ const NavigationBar = () => {
 
     return (
         <div className='navbar'>
-            <h2>Entrepreneur CRM</h2>
+            <h2 className='center'>Entrepreneur CRM</h2>
+                {console.log(currentUser)}
             <h3 className='login-btn' onClick={login}>Login</h3>
             <h3 onClick={signup}>Sign Up</h3>
         </div>

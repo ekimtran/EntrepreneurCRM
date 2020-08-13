@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { login, signup, clearErrors } from '../../actions/session_actions';
+import { useHistory, } from "react-router-dom";
+import { signup, clearErrors } from '../../actions/session_actions';
+import { closeModal } from "../../actions/modal_actions";
 
 const SignupForm = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const errors = useSelector((state) => (state.errors.session));
 
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
     const [ companyName, setCompanyName ] = useState('');
 
-    // useEffect(() => {
-    //     if (errors.length) dispatch(clearErrors());
-    // });
+    useEffect(() => {
+        if (errors.length) dispatch(clearErrors());
+    });
 
     const updateEmail = e => setEmail(e.target.value);
     const updatePassword = e => setPassword(e.target.value);
@@ -25,7 +28,8 @@ const SignupForm = () => {
         };
 
         dispatch(signup(user))
-            // .then(login(user))
+          .then(() => history.push("/"))
+          .then(() => dispatch(closeModal()));
     };
 
 

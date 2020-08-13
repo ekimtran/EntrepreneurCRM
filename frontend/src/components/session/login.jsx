@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory, useRouteMatch } from "react-router-dom";
 import { login, clearErrors } from '../../actions/session_actions';
+import { closeModal } from '../../actions/modal_actions';
 import '../../stylesheets/session.scss';
 
 const LoginForm = () => {
@@ -26,7 +27,9 @@ const LoginForm = () => {
             password
         };
 
-        dispatch(login(user)).then(() => history.push('/'))
+        dispatch(login(user))
+        .then(() => history.push('/'))
+        .then(() => dispatch(closeModal()))
     }
 
     return (

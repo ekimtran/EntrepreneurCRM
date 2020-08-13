@@ -2,10 +2,9 @@ import React from "react";
 import { closeModal } from "../../actions/modal_actions";
 import { connect } from "react-redux";
 import '../../stylesheets/modal.css';
-// import LoginFormContainer from "../session_form/login_form_container";
-// import SignupFormContainer from "../session_form/signup_form_container";
-// import PopupContainer from "../popup/popup_container";
-// import NotificationIndex from "../notification/notify_index_container";
+
+import LoginForm from '../session/login';
+import SignupForm from '../session/signup';
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
@@ -14,18 +13,12 @@ function Modal({ modal, closeModal }) {
 
   let component;
   switch (modal) {
-    // case "login":
-    //   component = <LoginFormContainer />;
-    //   break;
-    // case "signup":
-    //   component = <SignupFormContainer />;
-    //   break;
-    // case "popup":
-    //   component = <PopupContainer />;
-    //   break;
-    // case "notification":
-    //   component = <NotificationIndex />;
-    //   break;
+    case "login":
+      component = <LoginForm />;
+      break;
+    case "signup":
+      component = <SignupForm />;
+      break;
     default:
       return null;
   }

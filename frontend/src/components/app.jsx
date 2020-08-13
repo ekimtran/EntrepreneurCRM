@@ -4,11 +4,14 @@ import { Switch, Redirect, Route, withRouter } from 'react-router-dom';
 import LoginForm from './session/login';
 import SignupForm from './session/signup';
 import Splash from './splash';
+import NavigationBar from './session/navigation';
+import ModalContainer from './modal/modal';
 
 
 const App = () => (
     <div className="app">
 
+        <NavigationBar />
         <Switch>
             <Route exact path="/signup" component={SignupForm}/>
             <Route exact path="/login" component={LoginForm}/>

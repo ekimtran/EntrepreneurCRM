@@ -30,4 +30,14 @@ export const fetchAllCustomers = () => dispatch =>
     CustomerUtil.customerList()
         .then(customers => dispatch(receiveAllCustomers(customers)));
 
-        
+export const createCustomer = data => dispatch => 
+    CustomerUtil.createCustomer(data)
+        .then(customer => dispatch(receieveCustomer(customer)));
+
+export const updateCustomer = data => dispatch => 
+    CustomerUtil.updateCustomer(data)
+        .then(customer => dispatch(receieveCustomer(customer)));
+
+export const deleteCustomer = data => dispatch => 
+    CustomerUtil.removeCustomer(data)
+        .then(() => dispatch(removeCustomer(data)))

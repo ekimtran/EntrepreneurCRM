@@ -9,5 +9,5 @@ export const updateExpense = data => {
 };
 
 export const deleteExpense = data => {
-    return axios.delete('/api/expenses/delete')
+    return axios.delete('/api/expenses/delete', data)
 };
